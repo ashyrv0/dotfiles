@@ -1,0 +1,245 @@
+/* Reset */
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+}
+
+/* ==============================
+   Global Styles
+   ============================== */
+.bar {
+  background-color: #0f0f17;
+  color: #b0b4bc;
+  padding: 10px;
+}
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+.label-ram {
+  font-size: large;
+}
+
+tooltip.background {
+  background-color: #0f0f17;
+  font-size: 18;
+  border-radius: 10px;
+  color: #bfc9db;
+}
+
+tooltip label {
+  margin: 6px;
+}
+
+/* ==============================
+   Metric Styles
+   ============================== */
+.metric scale trough highlight {
+  all: unset;
+  background-color: #6e91b5;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+/* ==============================
+   Workspace Styles
+   ============================== */
+.workspaces button {
+  transition: all 0.3s ease;
+  background-color: #2a2a35;
+  color: #b0b4bc;
+  padding: 0px 3px;
+  border-radius: 6px;
+  margin: 1px;
+}
+
+.workspaces button:hover {
+  background-color: #6e91b5;
+  color: #0f0f17;
+}
+
+.workspace.active {
+  background-color: #6e91b5;
+  color: #0f0f17;
+}
+
+/* ==============================
+   Time Button Styles
+   ============================== */
+.time-button {
+  color: #b0b4bc;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.time-button:hover {
+  background-color: #3a3a45;
+  color: #6e91b5;
+}
+
+/* ==============================
+   Calendar Popup Styles
+   ============================== */
+.cal-box {
+  background-color: #1a1a24;
+  border: 1px solid #3a3a45;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.cal-inner-box {
+  padding: 10px;
+}
+
+.cal {
+  background-color: #2a2a35;
+  color: #b0b4bc;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.cal:selected {
+  background-color: #6e91b5;
+  color: #0f0f17;
+}
+
+.cal.header {
+color: #a1bdce;
+font-weight: bold;
+}
+
+calendar.highlight {
+color: #a1bdce;
+font-weight: bold;
+}
+
+calendar:indeterminate {
+color: #bfc9db;
+}
+/* ==============================
+   Music Controls
+   ============================== */
+.music_btn_prev,
+.music_btn_play,
+.music_btn_next {
+  font-family: Iosevka Nerd Font;
+}
+
+.music_btn_prev {
+  color: #bbc5d7;
+  font-size: 32px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.music_btn_play {
+  color: #a1bdce;
+  font-size: 48px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.music_btn_next {
+  color: #bbc5d7;
+  font-size: 32px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* ==============================
+   Music Popup Styles
+   ============================== */
+.music-popup {
+  background-color: #1a1a24;
+  border: 1px solid #3a3a45;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.music_cover_art {
+  background-size: cover;
+  background-position: center;
+  min-height: 100px;
+  min-width: 170px;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px #06060b;
+}
+
+/* Timeline */
+.timeline-container {
+  all: unset;
+  background-color: #232232;
+  border-radius: 12px;
+  min-height: 8px;
+  min-width: 190px;
+  margin: -5px 5px 10px 0;
+  padding: 2px 4px;
+  box-shadow: 0 6px 5px 2px #06060b;
+}
+
+/* Progress Bar */
+.music-progress {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  min-height: 6px;
+  margin: 5px 0;
+}
+
+.music-progress slider {
+  background-color: #ffffff;
+  border-radius: 50%;
+  min-height: 16px;
+  min-width: 16px;
+  margin: -5px 0;
+}
+
+.music-progress highlight {
+  background: linear-gradient(to right, #afcee0 30%, #a1bdce 50%, #77a5bf 100%);
+  border-radius: 24px;
+}
+
+.music-progress scale trough {
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  min-height: 4px;
+}
+
+.music-progress scale highlight {
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+/* Time Labels */
+.time-labels {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+.current-time,
+.total-time {
+  font-family: monospace;
+}
+
+/* Song Title */
+.popup-song-title, .popup-song-artist{
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+}
