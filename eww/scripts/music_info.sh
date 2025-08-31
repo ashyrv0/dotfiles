@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-MAX_TITLE_LENGTH=30
-MAX_ARTIST_LENGTH=30
+MAX_TITLE_LENGTH=25
+MAX_ARTIST_LENGTH=15
 CURL_TIMEOUT=5
 
 # Format seconds to MM:SS or HH:MM:SS
