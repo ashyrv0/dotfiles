@@ -133,9 +133,7 @@ color: #bfc9db;
 /* ==============================
    Music Controls
    ============================== */
-.music_btn_prev,
-.music_btn_play,
-.music_btn_next {
+.music_btn_prev, .music_btn_play, .music_btn_next {
   font-family: Iosevka Nerd Font;
 }
 
@@ -183,14 +181,22 @@ color: #bfc9db;
 
 /* Timeline */
 .timeline-container {
-  all: unset;
-  background-color: #232232;
-  border-radius: 12px;
-  min-height: 8px;
-  min-width: 190px;
+  background: linear-gradient(135deg, rgba(35, 34, 50, 0.8) 0%, rgba(42, 42, 53, 0.8) 100%);
+  border-radius: 15px;
   margin: -5px 5px 10px 0;
-  padding: 2px 4px;
+  padding: 8px 12px;
   box-shadow: 0 6px 5px 2px #06060b;
+}
+
+.music-progress scale trough {
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  min-height: 4px;
+}
+
+.music-progress scale highlight {
+  background-color: #ffffff;
+  border-radius: 6px;
 }
 
 /* Progress Bar */
@@ -214,16 +220,6 @@ color: #bfc9db;
   border-radius: 24px;
 }
 
-.music-progress scale trough {
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.2);
-  min-height: 4px;
-}
-
-.music-progress scale highlight {
-  background-color: #ffffff;
-  border-radius: 12px;
-}
 
 /* Time Labels */
 .time-labels {
@@ -232,8 +228,7 @@ color: #bfc9db;
   margin-top: 2px;
 }
 
-.current-time,
-.total-time {
+.current-time, .total-time {
   font-family: monospace;
 }
 
@@ -243,3 +238,4 @@ color: #bfc9db;
   font-weight: normal;
   margin: 0;
 }
+
