@@ -72,12 +72,11 @@ fi
 # Get metadata
 title="$(playerctl metadata title 2>/dev/null || echo "No song")"
 artist="$(playerctl metadata artist 2>/dev/null || echo "")"
+status="$(playerctl status 2>/dev/null | sed 's/Playing/󰏤/g; s/Paused//g' || echo '⸻')"
 
-# Fix: mpris:length is in microseconds
 raw_length="$(playerctl metadata mpris:length 2>/dev/null || echo 0)"
 length=$((raw_length / 1000000))
 
-# Position is already in seconds
 position="$(playerctl position 2>/dev/null | awk '{printf("%d\n",$1)}' || echo 0)"
 
 cover="$(handle_cover_art)"
@@ -94,6 +93,8 @@ echo "{
   \"artist\": \"$(escape_json "$(truncate_string "$artist" $MAX_ARTIST_LENGTH)")\",
   \"position\": \"$(format_time "$position")\",
   \"length\": \"$(format_time "$length")\",
+  \"length_seconds\": $length,
   \"progress\": $progress,
+  \"status\": \"$status\",
   \"cover\": \"$cover\"
 }"
