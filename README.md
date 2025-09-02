@@ -1,6 +1,7 @@
-# dotfiles
-My personal dotfiles for Hyprland.
-<img width="3840" height="2160" alt="screenshot" src="https://github.com/user-attachments/assets/b43ffac7-5b71-440d-9916-2b1c48ba6f88" />
+# .dotfiles 
+
+<img width="640" height="320" alt="screenshot" src="https://github.com/user-attachments/assets/1fd75b86-6e71-48a7-9b70-696436f33ff6"/>
+
 ## Dependencies
 
 Make sure you have these installed or things might not work:
