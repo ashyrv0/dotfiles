@@ -9,6 +9,9 @@
 (defpoll music :interval "1s" :initial "{}"
   "bash ~/.config/eww/scripts/music_info.sh")
 
+(defpoll artist :interval "2s" :initial ""
+  "playerctl metadata artist 2>/dev/null || echo ''")
+
 (defpoll hour :interval "1s" "date '+%H'")
 (defpoll min :interval "1s" "date '+%M'")
 
@@ -104,7 +107,7 @@
                :show-truncated true
                :class "popup-song-title"
                :halign "center")
-        (label :text {jq(music, ".artist") != "" ? jq(music, ".artist") : ""} 
+        (label :text {artist != "" ? artist : ""}
                :limit-width 15
                :show-truncated true
                :class "popup-song-artist"
@@ -134,7 +137,7 @@
                  :class "total-time" 
                  :halign "end"))))))
                  
-;; Clock Widgets ;;
+;; Clock Widgets
 (defwidget time []
   (box :orientation "v" 
        :class "time" 
@@ -149,7 +152,7 @@
           :class "time-button"
           time))
 
-;; Calendar Widgets ;;
+;; Calendar Widgets
 (defwidget cal []
   (box :class "cal-box"
        :orientation "v"
@@ -195,7 +198,7 @@
   :exclusive false
   (music-popup))
 
-;; Calendar Windows ;;
+;; Calendar Window
 (defwindow calendar
   :monitor 0
   :windowtype "dialog"
