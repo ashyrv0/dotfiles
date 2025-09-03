@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Configuration
 MAX_TITLE_LENGTH=25
 MAX_ARTIST_LENGTH=15
@@ -27,7 +26,7 @@ format_time() {
     fi
 }
 
-# Escape JSON strings
+# Escape JSON strings properly
 escape_json() {
     echo "$1" | sed 's/\\/\\\\/g; s/"/\\"/g; s/\t/\\t/g; s/\r/\\r/g; s/\n/\\n/g'
 }
@@ -49,17 +48,16 @@ handle_cover_art() {
     local TMP_COVER_PATH="$TMP_DIR/cover.png"
     local TMP_TEMP_PATH="$TMP_DIR/temp.png"
     [[ ! -d "$TMP_DIR" ]] && mkdir -p "$TMP_DIR"
-
+    
     local ART_FROM_SPOTIFY="$(playerctl -p %any,spotify metadata mpris:artUrl 2>/dev/null | sed -e 's/open.spotify.com/i.scdn.co/g')"
     local ART_FROM_BROWSER="$(playerctl -p %any,mpd,firefox,chromium,brave metadata mpris:artUrl 2>/dev/null | sed -e 's/file:\/\///g')"
-
+    
     if [[ -n "$ART_FROM_SPOTIFY" ]]; then
         curl -s --max-time "$CURL_TIMEOUT" "$ART_FROM_SPOTIFY" --output "$TMP_TEMP_PATH" 2>/dev/null && cp "$TMP_TEMP_PATH" "$TMP_COVER_PATH"
     elif [[ -n "$ART_FROM_BROWSER" ]] && [[ -f "$ART_FROM_BROWSER" ]]; then
         cp "$ART_FROM_BROWSER" "$TMP_TEMP_PATH"
         cp "$TMP_TEMP_PATH" "$TMP_COVER_PATH"
     fi
-
     echo "file://$TMP_COVER_PATH"
 }
 
@@ -72,29 +70,30 @@ fi
 # Get metadata
 title="$(playerctl metadata title 2>/dev/null || echo "No song")"
 artist="$(playerctl metadata artist 2>/dev/null || echo "")"
-status="$(playerctl status 2>/dev/null | sed 's/Playing/󰏤/g; s/Paused//g' || echo '⸻')"
-
+status="$(playerctl status 2>/dev/null | sed 's/Playing/󰏤/g; s/Paused/󰐊/g' || echo '⸻')"
 raw_length="$(playerctl metadata mpris:length 2>/dev/null || echo 0)"
 length=$((raw_length / 1000000))
-
 position="$(playerctl position 2>/dev/null | awk '{printf("%d\n",$1)}' || echo 0)"
-
 cover="$(handle_cover_art)"
 
 # Calculate progress %
 progress=0
 if [[ $length -gt 0 ]]; then
-  progress=$((position * 100 / length))
+    progress=$((position * 100 / length))
 fi
+
+# Clean the strings before JSON encoding
+clean_title="$(truncate_string "$title" $MAX_TITLE_LENGTH)"
+clean_artist="$(truncate_string "$artist" $MAX_ARTIST_LENGTH)"
 
 # Output JSON for Eww
 echo "{
-  \"title\": \"$(escape_json "$(truncate_string "$title" $MAX_TITLE_LENGTH)")\",
-  \"artist\": \"$(escape_json "$(truncate_string "$artist" $MAX_ARTIST_LENGTH)")\",
-  \"position\": \"$(format_time "$position")\",
-  \"length\": \"$(format_time "$length")\",
-  \"length_seconds\": $length,
-  \"progress\": $progress,
-  \"status\": \"$status\",
-  \"cover\": \"$cover\"
+\"title\": \"$(escape_json "$clean_title")\",
+\"artist\": \"$(escape_json "$clean_artist")\",
+\"position\": \"$(format_time "$position")\",
+\"length\": \"$(format_time "$length")\",
+\"length_seconds\": $length,
+\"progress\": $progress,
+\"status\": \"$status\",
+\"cover\": \"$cover\"
 }"
