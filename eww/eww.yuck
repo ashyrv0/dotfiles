@@ -88,10 +88,10 @@
                   :onclick "systemctl reboot" "↻")
           (button :class "button-logout"
                   :tooltip "Logout"
-                  :onclick "hyprctl dispatch exit || swaymsg exit || i3-msg exit" "🚪")
+                  :onclick "hyprctl dispatch exit || swaymsg exit || i3-msg exit" "󰍃")
           (button :class "button-lock"
                   :tooltip "Lock Screen"
-                  :onclick "hyprlock || swaylock || i3lock -c 000000" "🔒")))
+                  :onclick "hyprlock || swaylock || i3lock -c 000000" "")))
       (button :class "button-shutdown"
               :tooltip "Shutdown"
               :onclick "systemctl poweroff" "⏻"))))
