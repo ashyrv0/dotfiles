@@ -15,6 +15,7 @@
 .sidestuff slider {
   all: unset;
   color: #ffd5cd;
+  min-height: 4px;
 }
 
 .label-ram {
@@ -248,7 +249,6 @@ color: #bfc9db;
 }
 
 .button-shutdown {
-  background-color: #2a2a35;
   color: #F7768E;
   padding: 4px 8px;
   border-radius: 6px;
@@ -263,7 +263,6 @@ color: #bfc9db;
 }
 
 .button-sleep {
-  background-color: #2a2a35;
   color: #a1bdce;
   padding: 4px 8px;
   border-radius: 6px;
@@ -278,7 +277,6 @@ color: #bfc9db;
 }
 
 .button-restart {
-  background-color: #2a2a35;
   color: #73DACA;
   padding: 4px 8px;
   border-radius: 6px;
@@ -293,7 +291,6 @@ color: #bfc9db;
 }
 
 .button-logout {
-  background-color: #2a2a35;
   color: #BB9AF7;
   padding: 4px 8px;
   border-radius: 6px;
@@ -308,7 +305,6 @@ color: #bfc9db;
 }
 
 .button-lock {
-  background-color: #2a2a35;
   color: #7AA2F7;
   padding: 4px 8px;
   border-radius: 6px;
