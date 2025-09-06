@@ -130,6 +130,7 @@ font-weight: bold;
 calendar:indeterminate {
 color: #bfc9db;
 }
+
 /* ==============================
    Music Controls
    ============================== */
@@ -220,7 +221,6 @@ color: #bfc9db;
   border-radius: 24px;
 }
 
-
 /* Time Labels */
 .time-labels {
   font-size: 11px;
@@ -239,3 +239,85 @@ color: #bfc9db;
   margin: 0;
 }
 
+/* ==============================
+   Power Menu Styles
+   ============================== */
+.powermenu {
+  padding: 0;
+  margin: 0;
+}
+
+.button-shutdown {
+  background-color: #2a2a35;
+  color: #F7768E;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.button-shutdown:hover {
+  background-color: #F7768E;
+  color: #0f0f17;
+}
+
+.button-sleep {
+  background-color: #2a2a35;
+  color: #a1bdce;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.button-sleep:hover {
+  background-color: #a1bdce;
+  color: #0f0f17;
+}
+
+.button-restart {
+  background-color: #2a2a35;
+  color: #73DACA;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.button-restart:hover {
+  background-color: #73DACA;
+  color: #0f0f17;
+}
+
+.button-logout {
+  background-color: #2a2a35;
+  color: #BB9AF7;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.button-logout:hover {
+  background-color: #BB9AF7;
+  color: #0f0f17;
+}
+
+.button-lock {
+  background-color: #2a2a35;
+  color: #7AA2F7;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.button-lock:hover {
+  background-color: #7AA2F7;
+  color: #0f0f17;
+}
